@@ -1,11 +1,10 @@
-import './App.css'
-
+import './App.css';
+import Home from './pages/Home';
 function App() {
 
   return (
-    <div>
-      <h1>Welcome to Omnigraphy</h1>
-      <p>Cards, Canvas, and Camera</p>
+    <div className='app-bg'>
+      <Home />
     </div>
   );
 

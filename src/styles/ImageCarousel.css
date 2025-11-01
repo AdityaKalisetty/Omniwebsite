@@ -1,0 +1,25 @@
+img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+/* Add this CSS to your App.css or global styles */
+.slick-prev,
+.slick-next {
+  z-index: 2;              /* Make sure arrows appear above images */
+  top: 50%;                /* Vertically center */
+  transform: translateY(-50%);
+  width: 40px;             /* or your preferred size */
+  height: 40px; 
+  border-radius: 0%;
+  cursor: pointer;
+}
+
+.slick-prev {
+  left: 10px;     /* position inside carousel, adjust as needed */
+}
+
+.slick-next {
+  right: 10px;    /* position inside carousel, adjust as needed */
+}
