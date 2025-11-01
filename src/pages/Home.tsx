@@ -1,15 +1,24 @@
 import ImageCarousel from "../components/ImageCarousel";
 import '../styles/Home.css';
-function Home() {
+import React from 'react';
 
-  return (
+interface HomeProps {
+    closeMenu: () => void;
+}
+function Home({ closeMenu } : HomeProps) {
+
+    React.useEffect(() => {
+        closeMenu();
+    }, [closeMenu]);
+
+    return (
         <div className="home-container">
             <div className="text-container">
                 <h1>Cards, Canvas, & Camera</h1>
             </div>
             <ImageCarousel />
         </div>
-  );
+    );
 
 }
 
