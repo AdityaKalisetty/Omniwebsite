@@ -4,9 +4,9 @@ import Slider from "react-slick";
 import '../styles/ImageCarousel.css';
 
 const carouselImages = [
-    "/src/photos/coloradoMountain.jpg",
-    "/src/photos/shiva.jpg",
-    "/src/photos/sky.jpg",
+    "src/photos/coloradoMountain.jpg",
+    "src/photos/shiva.jpg",
+    "src/photos/sky.jpg",
 ];
 
 function ImageCarousel() {
