@@ -2,11 +2,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import '../styles/ImageCarousel.css';
+import photo1 from "../photos/coloradoMountain.jpg";
+import photo2 from "../photos/shiva.jpg";
+import photo3 from "../photos/sky.jpg";
+
+
 
 const carouselImages = [
-    "src/photos/coloradoMountain.jpg",
-    "src/photos/shiva.jpg",
-    "src/photos/sky.jpg",
+    photo1, photo2, photo3,
 ];
 
 function ImageCarousel() {
