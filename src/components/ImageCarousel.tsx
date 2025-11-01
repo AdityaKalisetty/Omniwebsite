@@ -26,7 +26,7 @@ function ImageCarousel() {
     return (
         <Slider {...settings}>
             {carouselImages.map((url, index) => (
-                <div key={index}>
+                <div key={index} style={{position: "relative"}}>
                     <img src={url} alt={`Slide ${index+1}`} />
                     <div 
                         style={{
@@ -35,7 +35,7 @@ function ImageCarousel() {
                             left: 0,
                             width: "100%",
                             height: "600px",
-                            backgroundColor: "rgba(0,0,0,0.1)",
+                            backgroundColor: "rgba(0,0,0,0.05)",
                             pointerEvents: "none",
                         }}
                     />

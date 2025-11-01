@@ -17,3 +17,10 @@ html, body, #root {
   box-sizing: border-box;
   overflow: auto;
 }
+
+@font-face {
+  font-family: 'PetitCochon';
+  src: url('./fonts/PetitCochon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
