@@ -10,4 +10,18 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split vendor libraries into separate chunks
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'animation-vendor': ['framer-motion'],
+          'particles-vendor': ['react-tsparticles', 'tsparticles-slim', 'tsparticles-engine'],
+          'carousel-vendor': ['react-slick', 'slick-carousel'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000, // Increase limit to 1000 kB to reduce warnings
+  },
 })

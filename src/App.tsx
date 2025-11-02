@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Navbar from './components/Navbar';
-import ParticleBackground from './components/ParticleBackground';
+
+// Lazy load ParticleBackground to reduce initial bundle size
+const ParticleBackground = lazy(() => import('./components/ParticleBackground'));
 
 function App() {
 
@@ -20,7 +22,9 @@ function App() {
 
   return (
     <Router>
-      <ParticleBackground />
+      <Suspense fallback={null}>
+        <ParticleBackground />
+      </Suspense>
       <div className='app-bg'>
         <Navbar isMenuOpen={isMenuOpen} toggleMenu = {toggleMenu} />
         <Routes>
