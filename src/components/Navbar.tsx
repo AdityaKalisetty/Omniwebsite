@@ -7,22 +7,29 @@ interface NavbarProps {
     toggleMenu: () => void;
 }
 function Navbar({ isMenuOpen, toggleMenu }: NavbarProps) {
+  const handleLinkClick = () => {
+    // Only close menu if it's actually open (mobile view)
+    if (isMenuOpen) {
+      toggleMenu();
+    }
+  };
+
   return (
     <nav className="glass-navbar">
-      <div className="logo">
-        <img src={logo} alt='OmnigraphyLogo' style={{ height: '50px' }}></img>
-      </div>
-      
+      <Link to="/" className="logo">
+        <img src={logo} alt='OmnigraphyLogo'></img>
+      </Link>
+
       <button className='menu-toggle' onClick={toggleMenu}>
         {isMenuOpen ? 'Close' : 'Menu'}
       </button>
 
       <ul className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
         <li>
-            <Link to="/" onClick={toggleMenu}>Home</Link>
+            <Link to="/" onClick={handleLinkClick}>Home</Link>
         </li>
         <li>
-            <Link to="/about" onClick={toggleMenu}>About</Link>
+            <Link to="/about" onClick={handleLinkClick}>About</Link>
         </li>
       </ul>
     </nav>

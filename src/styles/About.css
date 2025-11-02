@@ -1,0 +1,53 @@
+.about-container {
+    width: 100%;
+    max-width: 100vw;
+    min-height: 100vh;
+    padding: 2rem;
+    padding-top: calc(80px + 2rem); /* Account for fixed navbar */
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.about-container h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-container p {
+    color: white;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Responsive */
+@media only screen and (max-width: 768px) {
+    .about-container {
+        padding: 1.5rem;
+    }
+
+    .about-container h1 {
+        font-size: 2rem;
+    }
+
+    .about-container p {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .about-container {
+        padding: 1rem;
+    }
+
+    .about-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .about-container p {
+        font-size: 0.9rem;
+    }
+}
+

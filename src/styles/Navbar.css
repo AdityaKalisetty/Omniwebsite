@@ -4,59 +4,151 @@
   left: 0;              /* Full width starting at left edge */
   width: 100%;
   z-index: 10000;       /* Large z-index to appear above all content */
-  
+
   /* Your liquid glass styles */
   background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(2px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1.5rem;
   color: white;
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .logo img {
-  height: 50px;
+  height: 70px;
   object-fit: contain;
+  transition: filter 0.2s ease-in-out;
+}
+
+.logo:hover img {
+  filter: brightness(0) saturate(100%) invert(1);
 }
 
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
 }
 
-.nav-links.open {
-  display: block;
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  padding: 1rem;
-  border-radius: 12px;
+.nav-links li {
+  margin: 0;
+  padding: 0;
 }
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap; /* Prevent text wrapping */
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fde269;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Mobile dropdown menu - only applies on mobile */
 
 .menu-toggle {
   display: none;
   background: none;
   border: none;
   color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  white-space: nowrap;
+  flex-shrink: 0; /* Prevent button from shrinking */
 }
 
+/* Tablet and smaller screens */
 @media only screen and (max-width: 768px) {
+  .glass-navbar {
+    padding: 0.5rem 1rem; /* Reduce horizontal padding */
+  }
+
+  .logo img {
+    height: 55px; /* Slightly smaller logo on tablets */
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
   }
 
+  .nav-links.open {
+    display: block;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(2px);
+    padding: 1rem;
+    border-radius: 12px;
+    z-index: 1000;
+  }
+
   .menu-toggle {
     display: block;
-    font-size: 1.2rem;
-    cursor: pointer;
+    font-size: 1rem;
+  }
+}
+
+/* Very small screens (phones like Pixel 7) */
+@media only screen and (max-width: 480px) {
+  .glass-navbar {
+    padding: 0.5rem 0.5rem; /* Minimal padding for small phones */
+  }
+
+  .logo {
+    margin-right: auto; /* Push menu button to the right */
+  }
+
+  .logo img {
+    height: 45px; /* Smaller logo on mobile */
+  }
+
+  .menu-toggle {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+    margin-left: 0.5rem; /* Space between logo and button */
+  }
+
+  .nav-links {
+    gap: 1rem; /* Smaller gap between items */
+  }
+
+  .nav-links.open {
+    right: 10px; /* Closer to edge on small screens */
+    top: 55px; /* Adjust position */
   }
 }

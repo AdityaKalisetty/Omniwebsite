@@ -1,25 +1,190 @@
-img {
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
+.carousel-wrapper {
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+  overflow: hidden;
+  height: 70vh;
+  max-height: 600px;
+  z-index: 1;
 }
 
-/* Add this CSS to your App.css or global styles */
+.slick-slider {
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.slick-list {
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+  height: 100%;
+}
+
+.slick-track {
+  height: 100%;
+}
+
+.slick-slide {
+  height: 70vh;
+  max-height: 600px;
+}
+
+.slick-slide > div {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slick-slider img {
+    width: 100%;
+    max-width: 100%;
+    height: 70vh;
+    max-height: 600px;
+    object-fit: cover;
+    display: block;
+}
+
+.slick-slider .carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70vh;
+    max-height: 600px;
+    background-color: rgba(0, 0, 0, 0.05);
+    pointer-events: none;
+}
+
+/* Carousel navigation arrows */
 .slick-prev,
 .slick-next {
-  z-index: 2;              /* Make sure arrows appear above images */
-  top: 50%;                /* Vertically center */
+  z-index: 2;
+  top: 50%;
   transform: translateY(-50%);
-  width: 40px;             /* or your preferred size */
-  height: 40px; 
+  width: 40px;
+  height: 40px;
   border-radius: 0%;
   cursor: pointer;
 }
 
 .slick-prev {
-  left: 10px;     /* position inside carousel, adjust as needed */
+  left: 10px;
 }
 
 .slick-next {
-  right: 10px;    /* position inside carousel, adjust as needed */
+  right: 10px;
+}
+
+/* Tablets and medium screens */
+@media only screen and (max-width: 1024px) {
+  .carousel-wrapper {
+    height: 60vh;
+    max-height: 500px;
+  }
+
+  .slick-slide {
+    height: 60vh;
+    max-height: 500px;
+  }
+
+  .slick-slider img {
+    height: 60vh;
+    max-height: 500px;
+  }
+
+  .slick-slider .carousel-overlay {
+    height: 60vh;
+    max-height: 500px;
+  }
+}
+
+/* Small tablets and large phones */
+@media only screen and (max-width: 768px) {
+  .carousel-wrapper {
+    height: 50vh;
+    max-height: 400px;
+  }
+
+  .slick-slide {
+    height: 50vh;
+    max-height: 400px;
+  }
+
+  .slick-slider img {
+    height: 50vh;
+    max-height: 400px;
+  }
+
+  .slick-slider .carousel-overlay {
+    height: 50vh;
+    max-height: 400px;
+  }
+
+  .slick-prev,
+  .slick-next {
+    width: 30px;
+    height: 30px;
+  }
+
+  .slick-prev {
+    left: 5px;
+  }
+
+  .slick-next {
+    right: 5px;
+  }
+}
+
+/* Mobile phones */
+@media only screen and (max-width: 480px) {
+  .carousel-wrapper {
+    height: 40vh;
+    max-height: 300px;
+  }
+
+  .slick-slide {
+    height: 40vh;
+    max-height: 300px;
+  }
+
+  .slick-slider img {
+    height: 40vh;
+    max-height: 300px;
+  }
+
+  .slick-slider .carousel-overlay {
+    height: 40vh;
+    max-height: 300px;
+  }
+
+  .slick-prev,
+  .slick-next {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/* Very small phones */
+@media only screen and (max-width: 360px) {
+  .carousel-wrapper {
+    height: 35vh;
+    max-height: 250px;
+  }
+
+  .slick-slide {
+    height: 35vh;
+    max-height: 250px;
+  }
+
+  .slick-slider img {
+    height: 35vh;
+    max-height: 250px;
+  }
+
+  .slick-slider .carousel-overlay {
+    height: 35vh;
+    max-height: 250px;
+  }
 }

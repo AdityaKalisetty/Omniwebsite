@@ -4,12 +4,14 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Navbar from './components/Navbar';
+import ParticleBackground from './components/ParticleBackground';
+
 function App() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   const toggleMenu = () => {
-    setIsMenuOpen(isMenuOpen);
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const closeMenu = () => {
@@ -18,11 +20,12 @@ function App() {
 
   return (
     <Router>
+      <ParticleBackground />
       <div className='app-bg'>
         <Navbar isMenuOpen={isMenuOpen} toggleMenu = {toggleMenu} />
         <Routes>
           <Route path="/" element={<Home closeMenu={closeMenu} />} />
-          <Route path="/about" element={<About closeMenu={closeMenu} />} /> 
+          <Route path="/about" element={<About closeMenu={closeMenu} />} />
         </Routes>
       </div>
     </Router>

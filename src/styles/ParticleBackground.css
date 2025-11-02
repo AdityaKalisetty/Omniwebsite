@@ -1,0 +1,10 @@
+.particle-background-canvas {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 5 !important; /* Below navbar (10000) but above content (1-2) */
+    pointer-events: none;
+}
+
