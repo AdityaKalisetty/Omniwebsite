@@ -29,6 +29,9 @@ function Navbar({ isMenuOpen, toggleMenu }: NavbarProps) {
             <Link to="/" onClick={handleLinkClick}>Home</Link>
         </li>
         <li>
+            <Link to="/photos" onClick={handleLinkClick}>Photos</Link>
+        </li>
+        <li>
             <Link to="/about" onClick={handleLinkClick}>About</Link>
         </li>
       </ul>

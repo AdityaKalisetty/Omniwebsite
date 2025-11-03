@@ -2,17 +2,25 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import '../styles/ImageCarousel.css';
-import photo1 from "../photos/coloradoMountain.jpg";
-import photo2 from "../photos/shiva.jpg";
-import photo3 from "../photos/sky.jpg";
-
-
-
-const carouselImages = [
-    photo1, photo2, photo3,
-];
+import { useEffect, useState } from 'react';
+import { fetchPhotosByKeyword, getImageUrl } from '../services/strapi';
+import type { Photo } from '../services/strapi';
 
 function ImageCarousel() {
+    const [landscapePhotos, setLandscapePhotos] = useState<Photo[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const loadLandscapePhotos = async () => {
+            setLoading(true);
+            const photos = await fetchPhotosByKeyword('landscape');
+            setLandscapePhotos(photos);
+            setLoading(false);
+        };
+
+        loadLandscapePhotos();
+    }, []);
+
     const settings = {
         dots: false,
         arrows: true,
@@ -21,14 +29,31 @@ function ImageCarousel() {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
+        autoplaySpeed: 3000,
     };
+
+    if (loading) {
+        return (
+            <div className="carousel-wrapper" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <p style={{ color: 'white' }}>Loading carousel...</p>
+            </div>
+        );
+    }
+
+    if (landscapePhotos.length === 0) {
+        return (
+            <div className="carousel-wrapper" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <p style={{ color: 'white' }}>No landscape photos found</p>
+            </div>
+        );
+    }
 
     return (
         <div className="carousel-wrapper">
             <Slider {...settings}>
-                {carouselImages.map((url, index) => (
-                    <div key={index} style={{position: "relative"}}>
-                        <img src={url} alt={`Slide ${index+1}`} />
+                {landscapePhotos.map((photo) => (
+                    <div key={photo.id} style={{position: "relative"}}>
+                        <img src={getImageUrl(photo)} alt={photo.title} />
                         <div className="carousel-overlay" />
                     </div>
                 ))}

@@ -1,0 +1,79 @@
+.filter-panel {
+    width: 100%;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.filter-header h3 {
+    color: white;
+    font-size: 1.25rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.clear-filters-btn {
+    background: rgba(253, 226, 105, 0.2);
+    border: 1px solid rgba(253, 226, 105, 0.5);
+    border-radius: 6px;
+    color: #fde269;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.clear-filters-btn:hover {
+    background: rgba(253, 226, 105, 0.3);
+    border-color: #fde269;
+}
+
+/* Smaller mobile version */
+.clear-filters-btn.mobile {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.filter-section {
+    margin-bottom: 1.5rem;
+}
+
+.filter-section h4 {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    margin: 0 0 0.75rem 0;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.filter-checkbox:hover {
+    color: white;
+}
+
+.filter-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #fde269;
+}
+
+.filter-checkbox span {
+    user-select: none;
+}
+

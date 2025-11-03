@@ -10,8 +10,9 @@
 
 .about-container h1 {
     color: white;
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
+    font-family: 'PetitCochon', sans-serif;
 }
 
 .about-container p {
@@ -26,6 +27,7 @@
 @media only screen and (max-width: 768px) {
     .about-container {
         padding: 1.5rem;
+        padding-top: calc(80px + 1.5rem); /* Maintain navbar spacing */
     }
 
     .about-container h1 {
@@ -40,6 +42,7 @@
 @media only screen and (max-width: 480px) {
     .about-container {
         padding: 1rem;
+        padding-top: calc(80px + 1rem); /* Maintain navbar spacing */
     }
 
     .about-container h1 {
