@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const STRAPI_URL = 'http://localhost:1337';
+const STRAPI_URL = 'https://omnigraphy-backend-production.up.railway.app';
 
 // Strapi v5 structure (flattened)
 export interface Photo {
