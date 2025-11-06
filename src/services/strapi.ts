@@ -26,9 +26,9 @@ export interface PhotosResponse {
 
 export const fetchPhotos = async (): Promise<Photo[]> => {
     try {
-        console.log('Fetching photos from:', `${STRAPI_URL}/api/photos?populate=*`);
+        console.log('Fetching photos from:', `${STRAPI_URL}/api/photos?populate=*&pagination[pageSize]=100`);
         const response = await axios.get<PhotosResponse>(
-            `${STRAPI_URL}/api/photos?populate=*`
+            `${STRAPI_URL}/api/photos?populate=*&pagination[pageSize]=100`
         );
         console.log('Strapi response:', response.data);
         return response.data.data || [];
@@ -45,7 +45,7 @@ export const fetchPhotos = async (): Promise<Photo[]> => {
 export const searchPhotos = async (query: string): Promise<Photo[]> => {
     try {
         const response = await axios.get<PhotosResponse>(
-            `${STRAPI_URL}/api/photos?populate=*`
+            `${STRAPI_URL}/api/photos?populate=*&pagination[pageSize]=100`
         );
         const allPhotos = response.data.data;
 
@@ -70,7 +70,7 @@ export const fetchPhotosByKeyword = async (keyword: string): Promise<Photo[]> =>
     try {
         console.log(`Fetching photos with keyword: "${keyword}"`);
         const response = await axios.get<PhotosResponse>(
-            `${STRAPI_URL}/api/photos?populate=*`
+            `${STRAPI_URL}/api/photos?populate=*&pagination[pageSize]=100`
         );
         const allPhotos = response.data.data;
 

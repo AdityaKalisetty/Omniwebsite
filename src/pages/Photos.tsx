@@ -30,11 +30,23 @@ function Photos({ closeMenu }: PhotosProps) {
         closeMenu();
     }, [closeMenu]);
 
+    // Shuffle array function
+    const shuffleArray = <T,>(array: T[]): T[] => {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    };
+
     useEffect(() => {
         const loadPhotos = async () => {
             setLoading(true);
             const data = await fetchPhotos();
-            setPhotos(data);
+            // Randomize the order of photos
+            const shuffledPhotos = shuffleArray(data);
+            setPhotos(shuffledPhotos);
             setLoading(false);
         };
 
